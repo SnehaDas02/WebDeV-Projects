@@ -1,0 +1,221 @@
+<html>
+<head>
+  <title img src="images/OIP.jpeg">Amazon</title>
+  <a href="https://www.amazon_login.com">Login Website</a>
+
+    <style>
+        .container {
+  display: flex;
+  flex-direction: column;
+  height: 100px; /* Adjust as needed */
+}
+
+.colored-section {
+  background-color: black;
+  
+}
+
+.text-style{
+    font-size: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+.amazon-logo{
+            background: black;
+            border: 3px black solid;
+            width: 200px;
+            height: 100px;
+            padding-left: 600px;
+            padding-right: 680px;
+        }
+.login-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .heading {
+    width: 100%;
+    padding: 10px;
+    background-color: hsl(35, 99%, 45%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login {
+    width: 100%;
+    padding: 10px;
+    background-color: hsl(35, 99%, 45%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  
+
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.signin-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.signin-button:hover {
+  background-color: #ff8c00;
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #0066c0;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.new-to-amazon {
+  margin-top: 20px;
+}
+
+.create-account {
+  color: #ff9900;
+  text-decoration: none;
+}
+
+.create-account:hover {
+  text-decoration: underline;
+}
+
+  </style>
+
+  <body>
+
+  <div class="container">
+    <div class="colored-section">
+      <button class="heading"><img src="images/OIP.jpeg" class="amazon-logo"></button>
+    </div>
+    <p class="text-style">Welcome</p>
+</div>
+
+  <div class="login-container">
+    <div class="login-box">
+      <h1>Sign In</h1>
+      <form id="login-form">
+        <label for="email">Email or mobile phone number:</label>
+        <input type="text" id="email" name="email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit" class="signin-button">Sign In</button>
+      </form>
+      <a href="#" class="forgot-password">Forgot your password?</a>
+      <p class="new-to-amazon">New to Amazon? <a href="#" class="create-account">Create your Amazon account</a></p>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('login-form');
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const username = form.username.value;
+        const password = form.password.value;
+        
+        // Here you can perform login logic, such as checking credentials and redirecting.
+        // For this example, let's just log the credentials to the console.
+        console.log('Username:', username);
+        console.log('Password:', password);
+      });
+    });
+  </script>
+</boby>
+</html>
+  

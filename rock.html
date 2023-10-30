@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                            }
+        .title {
+            font-size:50px;
+            font-weight: bold;
+            background-color: chartreuse;
+            color: black;
+            border-radius: 0ch;
+        }
+
+        .move-icon {
+            height: 200px;
+            border-radius: 100px;
+        }
+
+        .move-button {
+            background: transparent;
+            border: 3px white solid;
+            width: 250px;
+            height: 250px;
+            border-radius: 100%;
+            margin-right: 10px;
+        }
+
+        .print-output{
+            font-size: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding-top: 20px;
+          
+
+        }
+
+        .print-score{
+            font-size: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding-top: 20px;
+           
+
+        }
+
+        .print-result{
+            font-size: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding-top: 20px;
+            }
+    </style>
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="
+      playGame('rock');
+    "><img src="images/51-511533_rock-paper-scissors-clipart.png" class="move-icon"></button>
+
+    <button onclick="
+      playGame('paper');
+    "><img src="images/51-511436_rock-paper-scissors-dell-clipart.png" class="move-icon"></button>
+
+    <button onclick="
+      playGame('scissors');
+    "><img src="images/2570425.png" class="move-icon"></button>
+
+    <p class="print-output"></p>
+    <p class="print-result"></p>
+    <p class="print-score"></p>
+
+    <button onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');
+      updateScoreElement();
+    ">Reset Score</button>
+
+    <script>
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+
+      updateScoreElement();
+
+     
+      function playGame(playerMove) {
+        const computerMove = pickComputerMove();
+
+        let result = '';
+
+        
+
+        localStorage.setItem('score', JSON.stringify(score));
+
+        if (playerMove === 'scissors') {
+          if (computerMove === 'rock') {
+            result = 'You lose.';
+            
+          } else if (computerMove === 'paper') {
+            result = 'You win.';
+           
+          } else if (computerMove === 'scissors') {
+            result = 'Tie.';
+            
+          }
+
+        } else if (playerMove === 'paper') {
+          if (computerMove === 'rock') {
+            result = 'You win.';
+            
+          } else if (computerMove === 'paper') {
+            result = 'Tie.';
+           
+            result = 'You lose.';
+            
+          }
+          
+        } else if (playerMove === 'rock') {
+          if (computerMove === 'rock') {
+            result = 'Tie.';
+          } else if (computerMove === 'paper') {
+            result = 'You lose.';
+          } else if (computerMove === 'scissors') {
+            result = 'You win.';
+          }
+        }
+
+        if (result === 'You win.') {
+          score.wins += 1;
+        } else if (result === 'You lose.') {
+          score.losses += 1;
+        } else if (result === 'Tie.') {
+          score.ties += 1;
+        }
+
+        updateScoreElement();
+
+        document.querySelector('.print-output').innerHTML = result;
+
+        document.querySelector('.print-result').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+      }
+
+      function updateScoreElement() {
+        document.querySelector('.print-score')
+          .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+      }
+
+      function pickComputerMove() {
+        const randomNumber = Math.random();
+
+        let computerMove = '';
+
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          computerMove = 'rock';
+        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          computerMove = 'paper';
+        } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+          computerMove = 'scissors';
+        }
+
+        return computerMove;
+      }
+    </script>
+  </body>
+</html>
